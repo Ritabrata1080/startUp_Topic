@@ -1,0 +1,12 @@
+# Code Owners : Approval from atleast one Code owner is mandatory to merge changes in the main line
+#
+
+# pattern 
+#
+# file/directory    user
+#
+
+*.cpp    @Ritabrata1080 @basuritam001
+*.java   @Ritabrata1080 @basuritam001
+*.py     @basuritam001 @aritra1311
+*.md     @basuritam001
