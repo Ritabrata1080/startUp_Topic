@@ -6,7 +6,7 @@
 #include <vector>
 using namespace std;
 
-int main() {
+int runVectors() {
 
   // initializer list
   vector<int> vector1 = {1, 2, 3, 4, 5};
