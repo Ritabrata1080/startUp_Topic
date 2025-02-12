@@ -17,33 +17,29 @@ Method 2 : Create 2 threads which will execute the two APIs
 #include <iostream> 
 #include <thread>
 #include <chrono>
-#include <algorithm>
-using namespace std;
-using namespace std::chrono;
+#include <cstdint>
 
-typedef unsigned long long ull;
+std::uint64_t OddSum = 0, EvenSum = 0;
 
-ull OddSum = 0, EvenSum = 0;
-
-void findOdd(ull start, ull end){
-    for(ull i = start; i <= end; i++){
-        if((i & 1) == 1){
+void findOdd(std::uint64_t start, std::uint64_t end) {
+    for(std::uint64_t i = start; i <= end; i++) {
+        if((i & 1) == 1) {
             OddSum += i;
         }
     }
 }
 
-void findEven(ull start, ull end){
-    for(ull i = start;i <= end; i++){
-        if((i & 1) == 0){
+void findEven(std::uint64_t start, std::uint64_t end) {
+    for(std::uint64_t i = start;i <= end; i++) {
+        if((i & 1) == 0) {
             EvenSum += i;
         }
     }
-}  
-int main(){
+}
 
-    ull lower_limit = 0, upper_limit = 1900000000;
-    auto startTime = high_resolution_clock::now();
+int runThreadSyncPart1() {
+    std::uint64_t lower_limit = 0, upper_limit = 1900000000;
+    auto startTime = std::chrono::high_resolution_clock::now();
 
     std::thread t1(findEven, lower_limit, upper_limit);
     std::thread t2(findOdd, lower_limit, upper_limit);
@@ -54,13 +50,13 @@ int main(){
     // findOdd(lower_limit, upper_limit);
     // findEven(lower_limit, upper_limit);    
 
-    auto stopTime = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(stopTime - startTime);
+    auto stopTime = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stopTime - startTime);
 
-    cout << "OddSum is : " << OddSum << endl;
-    cout << "EvenSum is : " << EvenSum << endl;
+    std::cout << "OddSum is : " << OddSum << '\n';
+    std::cout << "EvenSum is : " << EvenSum << '\n';
 
-    cout << "Total time takes : " << duration.count()/1000000 << endl;   
+    std::cout << "Total time takes : " << duration.count()/1000000 << std::endl;   
 
     return 0;
 }

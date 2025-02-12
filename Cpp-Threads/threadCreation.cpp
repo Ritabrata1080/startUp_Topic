@@ -19,7 +19,7 @@ struct func
     }
 };
 
-int main() {
+int runThreadCreation() {
     int some_local_state = 20;
     func my_func(some_local_state);
     std::thread my_thread(my_func); // Call functor using a thread to execute in a separate process

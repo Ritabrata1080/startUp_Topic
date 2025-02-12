@@ -40,7 +40,7 @@ void increment(){
     mtx.unlock();
 }
 
-int main()
+int runMutex()
 {
     // Create thread t1 to perform increment()
     thread t1(increment);

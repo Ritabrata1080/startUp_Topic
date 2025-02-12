@@ -10,8 +10,7 @@
 #include <iterator>
 #include <vector>
  
-int main() 
-{
+int runIteratorMethods() {
 
   // advance() -->  Increments given iterator it by n elements.
   /*
@@ -104,4 +103,5 @@ int main()
               << "distance(last, first) = "
               << std::distance(v1.end(), v1.begin()) << '\n';
 
+    return 0;
 }

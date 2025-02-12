@@ -11,7 +11,7 @@ void print(){
     std::cout << "Hello world" << std::endl;
 }
 
-int main(){
+int runConcurrentHelloWorld(){
     // Use lambda expression as a way to pass method to thread object 
     std::thread t([] {
         print();
